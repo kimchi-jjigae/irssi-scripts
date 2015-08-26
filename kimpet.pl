@@ -15,30 +15,18 @@ $VERSION = "0.01";
     license     => "Poop License lolololo",
 );
 
-print("real banananananana\n");
-
-Irssi::settings_add_str($IRSSI{'name'}, "pet_channels", "#infp|#Ikaruga|#ikaruga|#pallkars|#sfml|#hax|#petbot");
-#Irssi::settings_add_str($IRSSI{'name'}, "pet_channels", "#petbot");
+Irssi::settings_add_str($IRSSI{'name'}, "pet_channels", "#channel1|#channel2|#channel3");
 
 sub pet {
     my ($server, $msg, $nick, $address, $channel) = @_;
     if(($channel =~ Irssi::settings_get_str("pet_channels")))
     {
         #if($msg =~ /(?<!\S)(([:=]-?[\(\[\\\/]))|([D\]\)\\\/]-?[:=]])(?!\S)/) ## still gotta check these
-        if($msg =~ /[:=]-?[\(\[\\\/]$/)
+        if($msg =~ /[:=]-?[\(\[\\\/]$/) # add D:
         {
-            print("In: $channel | Petting: $nick");
             $server->command("msg $channel \x01ACTION pets $nick\x01");
         }
-        else
-        {
-        }
     }
-    else
-    {
-        return 0;
-    }
-
 }
 
 Irssi::signal_add('message public', 'pet');

@@ -1,4 +1,4 @@
-# kim's nick changes every time someone on ecnet says kim___ #
+# kim's nick changes every time someone says kim___ #
 
 use strict;
 use warnings;
@@ -11,11 +11,11 @@ $VERSION = "0.01";
     authors     => "kimspindel",
     contact     => "kimspindel\@gmail.com", 
     name        => "kimnick",
-    description => "kim's nick changes every time someone on ecnet says kim___",
+    description => "kim's nick changes every time someone says kim___",
     license     => "Poop License",
 );
 
-Irssi::settings_add_str($IRSSI{'name'}, "nick_channels", "#INTP|#infp|#Ikaruga|#ikaruga|#pallkars|#sfml|#hax");
+Irssi::settings_add_str($IRSSI{'name'}, "nick_channels", "#channel1|#channel2|#channel3");
 
 sub change_nick {
     my ($server, $msg, $nick, $address, $channel) = @_;
@@ -23,7 +23,6 @@ sub change_nick {
 
     if($msg =~ /(?<!\S)(kim[a-zA-Z\d\-\\`\[\]_\^]{3})(?!\S)/)
     {
-        print("Changing nick to: $1");
         $server->command("NICK $1");
     }
 }

@@ -15,8 +15,7 @@ $VERSION = "0.01";
     license     => "Poop License",
 );
 
-#Irssi::settings_add_str($IRSSI{'name'}, "nick_channels", "#INTP|#infp|#Ikaruga|#ikaruga|#pallkars|#hax");
-Irssi::settings_add_str($IRSSI{'name'}, "aoe_channels", "#pallkars|#Ikaruga|#ikaruga");
+Irssi::settings_add_str($IRSSI{'name'}, "aoe_channels", "#channel1|#channel2|#channel3");
 
 sub AoE2 {
     my ($server, $msg, $nick, $address, $channel) = @_;
