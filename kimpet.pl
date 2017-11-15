@@ -22,7 +22,7 @@ sub pet {
     if(($channel =~ Irssi::settings_get_str("pet_channels")))
     {
         #if($msg =~ /(?<!\S)(([:=]-?[\(\[\\\/]))|([D\]\)\\\/]-?[:=]])(?!\S)/) ## still gotta check these
-        if($msg =~ /[:=]-?[\(\[\\\/]$/) # add D:
+        if($msg =~ /[:=]-?[\(\[\\\/]$/) # TODO: add D:
         {
             $server->command("msg $channel \x01ACTION pets $nick\x01");
         }

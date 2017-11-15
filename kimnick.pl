@@ -15,7 +15,7 @@ $VERSION = "0.01";
     license     => "Poop License",
 );
 
-Irssi::settings_add_str($IRSSI{'name'}, "nick_channels", "#channel1|#channel2|#channel3");
+Irssi::settings_add_str($IRSSI{'name'}, "nick_channels", "#pallkars|#sfml");
 
 sub change_nick {
     my ($server, $msg, $nick, $address, $channel) = @_;
