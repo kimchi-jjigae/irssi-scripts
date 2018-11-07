@@ -10,7 +10,11 @@ $VERSION = "0.01";
 Irssi::settings_add_str($IRSSI{'name'}, "heart_channels", "#channel1|#channel2|#channel3");
 
 sub heart {
-    my ($server, $msg, $channel) = @_; 
+    my ($cmd, $server, $winitem) = @_; 
+#    print($cmd); # -channel "#pallkars-test" hi
+#    print($server); # Irssi::Irc::Server=HASH(0x558c8ae041a0)
+#    print($winitem); # Irssi::Irc::Channel=HASH(0x558c8adefb30)
+    my ($param, $channel, $msg) = $cmd =~ /^(-\S*\s)?(\S*)\s(.*)/;
 
     if(($channel =~ Irssi::settings_get_str("heart_channels")))
     {   
@@ -22,4 +26,4 @@ sub heart {
     }   
 }
 
-Irssi::signal_add('message own_public', 'heart');
+Irssi::command_bind('msg', 'heart');
